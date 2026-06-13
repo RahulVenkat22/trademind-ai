@@ -1,0 +1,23 @@
+# --- Core framework ---
+Django==5.1.4
+djangorestframework==3.15.2
+djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.6.0
+python-dotenv==1.0.1
+psycopg2-binary==2.9.10
+
+# --- Task queue / scheduling ---
+celery==5.4.0
+redis==5.2.1
+
+# --- AI / LLM ---
+requests==2.32.3
+
+# --- Data sources & analysis (imported lazily; the app boots without them) ---
+yfinance==1.4.1
+curl_cffi==0.15.0
+pandas==2.2.3
+numpy==2.2.1
+vaderSentiment==3.3.2
+praw==7.8.1
+feedparser==6.0.11

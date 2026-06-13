@@ -121,7 +121,7 @@ python manage.py runserver
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 
 ---
@@ -130,6 +130,23 @@ npm start
 
 ```bash
 ollama run llama3
+```
+
+---
+
+### 5. Celery (scheduled trading cycle)
+
+The trading cycle runs automatically every 20 minutes via Celery Beat. It
+needs a Redis broker (configure `CELERY_BROKER_URL` / `CELERY_RESULT_BACKEND`
+in `.env`).
+
+```bash
+# Start Redis (or install it locally, e.g. `apt install redis-server`)
+docker run -d -p 6379:6379 redis
+
+# From the backend/ directory, in separate terminals:
+celery -A config worker -l info   # runs the task
+celery -A config beat -l info     # schedules it every 20 min
 ```
 
 ---
